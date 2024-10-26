@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+    <title>PokerProHands</title>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'all_deals.css' %}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <script src="{% static 'all_deals.js' %}"></script>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">Logotype</div>
+            <div class="login">
+                <img src="{% static 'img/logout.svg'%}">log in
+            </div>
+        </div>
+        <div class="nav">
+            <button class="active"><img src="{% static 'img/ps_logo.svg' %}" class="room_logo">PokerStars.com</button>
+            <button><img src="{% static 'img/ps_logo.svg' %}" class="room_logo">PokerStars.es</button>
+            <button><img src="{% static 'img\wpn_logo.svg' %}" class="room_logo">WPN</button>
+        </div>
+        <div class="content">
+            <div class="filters_details">
+                <div class="filters_names">
+                    <div class="date_name">
+                        DATE
+                    </div>
+                    <div class="type_name">
+                        TYPE
+                    </div>
+                    <div class="buy_in_name">
+                        BUY-IN
+                    </div>
+                    <div class="table_size_name">
+                        TABLE SIZE
+                    </div>
+                    <div>
+                        SPEED
+                    </div>
+                </div>
+                <div class="filters">
+                    <input type="date" class="date" placeholder="-">
+                    to
+                    <input type="date" class="date" placeholder="-">
+                    <select class="type">
+                        <option>Type</option>
+                    </select>
+                    <select class="buy_in">
+                        <option>BUY-IN</option>
+                    </select>
+                    <select class="table_size">
+                        <option>TABLE SIZE</option>
+                    </select>
+                    <select class="speed">
+                        <option>SPEED</option>
+                    </select>
+                </div>
+            </div>
+            <div class="search_area">
+                <div class="search">
+                    <img src="{% static 'img\search.svg' %}">
+                    <input type="text" placeholder="search tournaments" class="search_tournaments">
+                </div>
+                <img src="{% static 'img\info.svg' %}" class="search_info">
+            </div>
+            <table class="table">
+                <thead>
+                    <tr class="tournaments_info_names">
+                        <th>Buy-In</th>
+                        <th>Name</th>
+                        <th><img src="{% static 'img\info.svg' %}"></th>
+                        <th>Hands</th>
+                        <th>Cost</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{ tournaments|safe }}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

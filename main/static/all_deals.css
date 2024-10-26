@@ -1,0 +1,318 @@
+body {
+    background-color: #080B0F;
+    color: #e5e5e7;
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.logo{
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 130%;
+    color: #FFFFFF;
+}
+
+.container {
+    padding: 20px;
+    max-width: 1416px;
+    width: 100%;
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+}
+.header h1 {
+    font-size: 24px;
+}
+.header .login {
+    font-size: 14px;
+    cursor: pointer;
+}
+.nav {
+    width: 26.46vw;
+    display: flex;
+
+    justify-content: center;
+    gap: 25px;
+    margin-bottom: 20px;
+
+    box-sizing: border-box;
+
+    border: 1px solid #44464A;
+    border-radius: 12px;
+}
+
+.nav button {
+    display: flex;
+    background-color: transparent;
+    border: transparent;
+    padding: 10px 20px;
+    color: #e5e5e7;
+    cursor: pointer;
+    border-radius: 12px;
+    align-items: center;
+    gap: 0.63vw;
+
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 140%;
+
+    color: #797F85;
+}
+
+
+.nav button.active {
+    background-color: transparent;
+}
+.filters {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: nowrap;
+}
+.filters select, .filters input {
+
+    padding: 10px;
+    border-radius: 5px;
+
+}
+.filters .show {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+.filters .show i {
+    margin-left: 5px;
+}
+.search {
+    display: flex;
+    align-items: center;
+
+    padding: 10px;
+    border-radius: 5px;
+
+
+    width: 100%;
+    height: 2.29vh;
+
+    max-width: 679px;
+    border: 1px solid #44464A;
+    gap: 0.63vw;
+
+}
+.search input {
+    background-color: transparent;
+    border: none;
+    color: #e5e5e7;
+    flex-grow: 1;
+}
+.search i {
+    margin-right: 10px;
+}
+.table {
+    width: 100%;
+    border-collapse: collapse;
+
+}
+.table th, .table td {
+    padding: 10px;
+    text-align: left;
+}
+
+.table .icon {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.table .icon i {
+    color: #ff3b30;
+}
+.table .icon i.green {
+    color: #34c759;
+}
+.table .icon i.blue {
+    color: #007aff;
+}
+.table .icon i.yellow {
+    color: #ffcc00;
+}
+
+.table tbody tr:nth-child(odd){
+    background-color: #22242B;
+}
+
+
+
+
+.content{
+    background-color: #1A1C21;
+
+}
+
+
+.filters_names{
+    display: flex;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 150%;
+
+    color: #797F85;
+    padding-top: 1.481481481vh;
+    padding-left: 0.83%;
+    padding-right: 0.83%;
+    padding-bottom: 0.7407407407vh;
+
+}
+
+.filters{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 0.83%;
+    padding-right: 0.83%;
+}
+
+.tournaments_info_names{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 150%;
+
+    color: #797F85;
+}
+
+.select_tournament{
+    padding-right: 0.78vw;
+}
+
+
+
+.header{
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    justify-content: space-between;
+}
+.login{
+
+    display: flex;
+    align-items: center;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 140%;
+    color: #FFFFFF;
+    gap: 1.111111111111111vh;
+
+}
+
+.room_logo{
+    width: 18px;
+    height: 18px;
+}
+
+.search_info{
+    display: flex;
+    align-items: center;
+    height: 2vh;
+    padding-left: 0.63vw;
+
+}
+.search_area{
+    display: flex;
+    align-items: center;
+    padding-left: 0.6vw;
+}
+
+.date{
+    display: flex
+    width: 6.825vw;
+}
+
+.type{
+    display: flex;
+    width: 13.65vw;
+}
+
+.buy_in{
+    display: flex;
+    width: 13.65vw;
+}
+
+.table_size{
+    display: flex;
+    width: 13.65vw;
+}
+
+.speed{
+    display: flex;
+    width: 13.65vw;
+}
+
+.date_name{
+    padding-right: 15.4vw;
+}
+
+.type_name{
+    padding-right: 12.25vw;
+}
+
+.buy_in_name{
+    padding-right: 11.6vw;
+}
+
+.table_size_name{
+    padding-right: 10vw;
+}
+
+.date{
+    display: flex;
+    background-color: #1A1C21;
+    border: 1px solid #44464A;
+    border-radius: 8px;
+
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 140%;
+
+    color: #FFFFFF;
+
+}
+
+select{
+    display: flex;
+    background-color: #1A1C21;
+    border: 1px solid #44464A;
+    border-radius: 8px;
+
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 140%;
+
+    color: #FFFFFF;
+
+}
+
+.search_tournaments{
+    outline: none;
+}
+
+.nav button:hover{
+    background-color: #37393D;
+}
+
