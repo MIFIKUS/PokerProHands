@@ -85,7 +85,7 @@ body {
 
 }
 .filters .show {
-    display: flex;
+
     align-items: center;
     cursor: pointer;
 }
@@ -242,22 +242,119 @@ body {
 
 .type{
     display: flex;
+    flex-wrap: wrap;
+    width: 13.4vw;
+}
+
+.type_button{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    cursor: pointer;
     width: 13.65vw;
+    height: 4.5vh;
+    background-color: #1A1C21;
+    border: 1px solid #44464A;
+    border-radius: 5px;
+
+    text-align: left;
+    padding: 10px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 140%;
+
+    color: #FFFFFF;
+
 }
 
 .buy_in{
     display: flex;
+    width: 13.4vw;
+}
+
+.buy_in_button{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    cursor: pointer;
     width: 13.65vw;
+    height: 4.5vh;
+    background-color: #1A1C21;
+    border: 1px solid #44464A;
+    border-radius: 5px;
+
+    text-align: left;
+    padding: 10px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 140%;
+
+    color: #FFFFFF;
+
 }
 
 .table_size{
     display: flex;
+    width: 13.4vw;
+}
+
+.table_size_button{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    cursor: pointer;
     width: 13.65vw;
+    height: 4.5vh;
+    background-color: #1A1C21;
+    border: 1px solid #44464A;
+    border-radius: 5px;
+
+    text-align: left;
+    padding: 10px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 140%;
+
+    color: #FFFFFF;
+
 }
 
 .speed{
     display: flex;
+    width: 13.4vw;
+}
+
+.speed_button{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    cursor: pointer;
     width: 13.65vw;
+    height: 4.5vh;
+    background-color: #1A1C21;
+    border: 1px solid #44464A;
+    border-radius: 5px;
+
+    text-align: left;
+    padding: 10px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 140%;
+
+    color: #FFFFFF;
+
 }
 
 .date_name{
@@ -316,3 +413,46 @@ select{
     background-color: #37393D;
 }
 
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    width: 12.35vw;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px;
+    z-index: 1;
+
+    margin-top: 5.5vh;
+    opacity: 0; /* Начальная прозрачность */
+    transition: opacity 0.3s ease;
+
+    background-color: #1A1C21;
+    border-radius: 5px;
+    border: 1px solid #44464A;
+
+}
+
+.dropdown-content.show {
+    display: block; /* Установите display на block для отображения */
+    opacity: 1; /* Увеличение непрозрачности */
+}
+.dropdown-content input {
+    margin-right: 10px;
+}
+.dropdown-content label {
+    display: block;
+    margin-bottom: 5px;
+}
+.show {
+    display: block;
+}
+
+.active{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 140%;
+
+    color: #00AA8C;
+}

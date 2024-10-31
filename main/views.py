@@ -41,3 +41,8 @@ def all_deals(request):
     context = {'tournaments': answer}
 
     return render(request, "all_deals.html", context=context)
+
+
+def get_deals(request):
+    page = request.GET.get('page', 1)
+    return HttpResponse(get_all_deals(page))
