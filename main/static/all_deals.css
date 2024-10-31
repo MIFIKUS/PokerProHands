@@ -456,3 +456,15 @@ select{
 
     color: #00AA8C;
 }
+
+.tournament_info_details{
+    display:flex;
+    justify-content: space-between;
+    width: 70%;
+}
+
+.buy_in_select{
+    display: flex;
+    gap: 5px;
+
+}

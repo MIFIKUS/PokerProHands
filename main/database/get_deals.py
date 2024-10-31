@@ -12,7 +12,8 @@ def get_all_deals(page):
     _connection.autocommit = True
     cursor = _connection.cursor()
 
-    query = f"""SELECT tournament_id, name, total_buy_in, table_size, speed, tournament_type, hands FROM poker.archives LIMIT 50 OFFSET {int(page)*50};
+    query = f"""SELECT tournament_id, name, total_buy_in, table_size, speed, tournament_type, hands FROM poker.archives WHERE table_size != 0   
+    AND name != '' LIMIT 50 OFFSET {(int(page) - 1)*50};
     """
     print(query)
     cursor.execute(query)

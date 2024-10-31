@@ -20,14 +20,53 @@ async function loadData(page) {
         console.log(typeof data);
 
         Object.entries(data).forEach(([id, tournament]) => {
-            var name = tournament.name;
             var buy_in = tournament.buy_in;
+            var name = tournament.name;
+            var table_size = tournament.table_size;
+            var speed = tournament.speed;
+            var tournament_type = tournament.tournament_type;
             var hands = tournament.hands;
+
+            var table_size_img_name = table_size + 'max.svg';
+            var speed_img_name;
+            var tournament_type_img_name;
+
+            switch (speed){
+                case 'SLOW':
+                    speed_img_name = 'slow.svg';
+                    break;
+                case 'REG':
+                    speed_img_name = 'regular.svg';
+                    break;
+                case 'TURBO':
+                    speed_img_name = 'turbo.svg';
+                    break;
+                case 'HYPER':
+                    speed_img_name = 'hyper_turbo.svg';
+                    break;
+            }
+
+            switch (tournament_type){
+                case 'KO':
+                    tournament_type_img_name = 'knockout.svg';
+                    break;
+                case 'FREEZE':
+                    tournament_type_img_name = 'freezeout.svg';
+                    break;
+                case 'MYSTERY':
+                    tournament_type_img_name = 'mystery.svg';
+                    break;
+            }
 
             tournamentsTable.innerHTML += `
                 <tr>
-                    <td>${buy_in}</td>
+                    <td class='buy_in_select'><img src="/static/img/select.svg">${buy_in}</td>
                     <td>${name}</td>
+                    <td>
+                        <div class='tournament_info_details'>
+                            <img src="/static/img/${tournament_type_img_name}"><img src="/static/img/${speed_img_name}"><img src="/static/img/${table_size_img_name}">
+                        </div>
+                    </td>
                     <td>${hands}</td>
                     <td>12</td>
                 </tr>
