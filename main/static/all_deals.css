@@ -145,6 +145,10 @@ body {
     color: #ffcc00;
 }
 
+.table tbody tr{
+    background-color: #1A1C21;
+}
+
 .table tbody tr:nth-child(odd){
     background-color: #22242B;
 }
@@ -467,4 +471,107 @@ select{
     display: flex;
     gap: 5px;
 
+}
+
+.table tbody tr:hover{
+    background-color: #414450;
+}
+
+.buy_panel_container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.buy_panel{
+    width: 61.25vw;
+    height: 7.03703704vh;
+    background-color: #080B0F;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 90vh;
+    border-radius: 8px;
+
+    padding-left: 2.04081633%;
+    padding-right: 2.04081633% !important;
+}
+
+#selected_text{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 140%;
+    color: #797F85;
+    padding-right: 0.680272109%;
+    padding-left
+}
+
+#amount_of_selected_deals{
+    width: 2.551020408163%;
+    height: 1.700680272109%;
+
+    padding-right: 33.07823129252%;
+}
+
+#total_text{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 150%;
+
+    color: #FFFFFF;
+
+    padding-right: 2.040816326531%;
+}
+
+#hands_text{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 150%;
+
+    color: #797F85;
+
+    padding-right: 1.020408163265%;
+}
+
+#amount_of_hands{
+    padding-right: 2.040816326531%;
+}
+
+#cost_text{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 150%;
+
+    color: #797F85;
+
+    padding-right: 1.020408163265%;
+}
+
+#cost_amount{
+    padding-right: 21.8537414966%;
+}
+
+#buy{
+    white-space: nowrap;
+    cursor: pointer;
+    width: 17.7721088%;
+    height: 68.4210526%;
+    border: transparent;
+    background: #00AA8C;
+    border-radius: 8px;
+    color: white;
+
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 140%;
 }

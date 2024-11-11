@@ -28,7 +28,6 @@ def all_deals(request):
                                                                   'speed_form': speed_form})
 
 
-
 def get_deals(request):
     page = request.GET.get('page', 1)
     start_date = request.GET.get('start_date', 1)

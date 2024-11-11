@@ -1,3 +1,9 @@
+
+
+
+
+
+
 document.addEventListener('DOMContentLoaded', function() {
     // Получаем текущую дату
     const today = new Date();

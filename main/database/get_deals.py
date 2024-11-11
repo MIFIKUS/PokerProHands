@@ -118,10 +118,12 @@ def get_all_deals(page, start_date, end_date, tournament_type, buy_in, table_siz
                 tournament_type = i[5]
                 hands = i[6]
                 if answer.get(tournament_name):
+                    tournament_name = tournament_name.replace('_', ' ')
                     try:
                         answer[tournament_name]['hands'] += hands
                     except: pass
                 else:
+                    tournament_name = tournament_name.replace('_', ' ')
                     answer[tournament_name] = {'name': tournament_name.replace("'", ''), 'buy_in': buy_in, 'table_size': table_size, 'speed': speed,
                                               'tournament_type': tournament_type, 'hands': hands}
 

@@ -102,6 +102,28 @@ async function loadData(page) {
     } finally {
         isLoading = false; // Сбрасываем флаг загрузки после завершения
     }
+
+    const rows = document.querySelectorAll('tr');
+
+// Добавляем обработчик события для каждого tr
+    rows.forEach(row => {
+        row.addEventListener('click', function() {
+            if (this.classList.contains('selected')){
+                this.classList.remove('selected');
+
+                const select_img = this.querySelector('td').querySelector('img');
+                select_img.src = '/static/img/select.svg'
+
+            } else{
+                this.classList.add('selected');
+                const select_img = this.querySelector('td').querySelector('img');
+                select_img.src = '/static/img/selected.svg'
+            }
+        });
+    });
+
+
+
 }
 
 // Обработчик события прокрутки
