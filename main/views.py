@@ -14,35 +14,28 @@ def about(request) -> HttpResponse:
 
 
 def all_deals(request):
-    answer = ''
+    from django.shortcuts import render
+    from .forms import DateForm, TypeForm, BuyInForm, TableSizeForm, SpeedForm
 
-#    all_deals_data = get_all_deals()
-#
-#    for i in all_deals_data:
-#        if '' in i:
-#            continue
-#        tournament_id = i[0]
-#        name = i[1].replace('_', ' ')
-#        buy_in = i[2]
-#        table_size = i[3]
-#        speed = i[4]
-#        tournament_type = i[5]
-#        hands = i[6]
-#        deal_info = f'''<tr>
-#                            <td><img src="/static/img/select.svg" class="select_tournament">
-#                            {buy_in}</td>
-#                            <td>{name}</td>
-#                            <td>{table_size}</td>
-#                            <td>{hands}</td>
-#                            <td>${random.randint(1, 15)}</td>
-#                        </tr>'''
-#        answer += deal_info
-#
-#    context = {'tournaments': answer}
+    form = DateForm()
+    type_form = TypeForm()
+    buy_in_form = BuyInForm()
+    table_size_form = TableSizeForm()
+    speed_form = SpeedForm()
 
-    return render(request, "all_deals.html")
+    return render(request, 'all_deals.html', {'form': form, 'type_form': type_form,
+                                                                  'buy_in_form': buy_in_form, 'table_size_form': table_size_form,
+                                                                  'speed_form': speed_form})
+
 
 
 def get_deals(request):
     page = request.GET.get('page', 1)
-    return HttpResponse(get_all_deals(page), content_type='application/json')
+    start_date = request.GET.get('start_date', 1)
+    end_date = request.GET.get('end_date', 1)
+    tournament_type = request.GET.get('type', '')
+    buy_in = request.GET.get('buy_in', '')
+    table_size = request.GET.get('table_size', '')
+    speed = request.GET.get('speed', '')
+
+    return HttpResponse(get_all_deals(page, start_date, end_date, tournament_type, buy_in, table_size, speed), content_type='application/json')

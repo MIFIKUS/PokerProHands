@@ -1,3 +1,22 @@
+document.addEventListener('DOMContentLoaded', function() {
+    // Получаем текущую дату
+    const today = new Date();
+
+    const week_ago = new Date();
+
+    week_ago.setDate(today.getDate() - 7)
+    // Форматируем дату в формат YYYY-MM-DD
+    const formattedToday = today.toISOString().split('T')[0];
+    const formattedWeekAgo = week_ago.toISOString().split('T')[0];
+
+    // Устанавливаем значение в input
+    document.getElementById('end_date').value = formattedToday;
+    document.getElementById('start_date').value = formattedWeekAgo;
+
+
+});
+
+
 function toggleDropdown() {
     const dropdown = document.getElementById("myDropdown");
     dropdown.classList.toggle("show");

@@ -16,13 +16,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
     <script src="{% static 'all_deals.js' %}"></script>
-
+    <script src="{% static 'all_deals_server.js'%}"></script>
 </head>
 
 <body>
     <div class="container">
         <div class="header">
-            <div class="logo">Logotype</div>
+            <div class="logo">PokerProHands</div>
             <div class="login">
                 <img src="{% static 'img/logout.svg'%}">log in
             </div>
@@ -52,66 +52,66 @@
                     </div>
                 </div>
                 <div class="filters">
-                    <input type="date" class="date" placeholder="-">
+                    {{ form.start_date }}
                     to
-                    <input type="date" class="date" placeholder="-">
+                    {{ form.end_date }}
                     <div class="type">
-                        <button class="type_button" onclick="toggleDropdown()" id="type_button">
+                        <button class="type_button" onclick="toggleDropdown(); HandleTypeValue()" id="type_button">
                             All
                             <img class="chevron" src="{% static 'img/chevron_down.svg' %}">
                         </button>
                         <div id="myDropdown" class="dropdown-content">
-                            <label><input class="filters_checkbox" type="checkbox" value="Freezeout" onchange="updateButtonText()">Freezeout</label>
-                            <label><input class="filters_checkbox" type="checkbox" value="Knockout" onchange="updateButtonText()">Knockout</label>
-                            <label><input class="filters_checkbox" type="checkbox" value="Mystery" onchange="updateButtonText()">Mystery</label>
+                            <label>{{ type_form.freezeout }}Freezeout</label>
+                            <label>{{ type_form.knockout }}Knockout</label>
+                            <label>{{ type_form.mystery }}Mystery</label>
                         </div>
                     </div>
                    <div class="buy_in">
-                        <button class="buy_in_button" onclick="toggleDropdownBuyIn()" id="buy_in_button">
+                        <button class="buy_in_button" onclick="toggleDropdownBuyIn(); HandleBuyInValue()" id="buy_in_button">
                             All
                             <img class="chevron" src="{% static 'img/chevron_down.svg' %}">
                         </button>
                         <div id="buy_in_dropdown" class="dropdown-content">
-                            <label><input class="buy_in_checkbox" type="checkbox" value="$33" onchange="updateButtonTextBuyIn()">$33</label>
-                            <label><input class="buy_in_checkbox" type="checkbox" value="$44" onchange="updateButtonTextBuyIn()">$44</label>
-                            <label><input class="buy_in_checkbox" type="checkbox" value="$55" onchange="updateButtonTextBuyIn()">$55</label>
-                            <label><input class="buy_in_checkbox"type="checkbox" value="$82" onchange="updateButtonTextBuyIn()">$82</label>
-                            <label><input class="buy_in_checkbox" type="checkbox" value="$109" onchange="updateButtonTextBuyIn()">$109</label>
-                            <label><input class="buy_in_checkbox" type="checkbox" value="$162" onchange="updateButtonTextBuyIn()">$162</label>
-                            <label><input class="buy_in_checkbox" type="checkbox" value="$215" onchange="updateButtonTextBuyIn()">$215</label>
-                            <label><input class="buy_in_checkbox" type="checkbox" value="$320" onchange="updateButtonTextBuyIn()">$320</label>
-                            <label><input class="buy_in_checkbox" type="checkbox" value="$530" onchange="updateButtonTextBuyIn()">$530</label>
-                            <label><input class="buy_in_checkbox" type="checkbox" value="$1050" onchange="updateButtonTextBuyIn()">$1050</label>
-                            <label><input class="buy_in_checkbox" type="checkbox" value="$2100" onchange="updateButtonTextBuyIn()">$2100</label>
-                            <label><input class="buy_in_checkbox" type="checkbox" value="$5200" onchange="updateButtonTextBuyIn()">$5200</label>
-                            <label><input class="buy_in_checkbox" type="checkbox" value="$10300" onchange="updateButtonTextBuyIn()">$10300</label>
-                            <label><input class="buy_in_checkbox" type="checkbox" value="$25000" onchange="updateButtonTextBuyIn()">$25000</label>
+                            <label>{{ buy_in_form.b33 }}$33</label>
+                            <label>{{ buy_in_form.b44 }}$44</label>
+                            <label>{{ buy_in_form.b55 }}$55</label>
+                            <label>{{ buy_in_form.b82 }}$82</label>
+                            <label>{{ buy_in_form.b109 }}$109</label>
+                            <label>{{ buy_in_form.b162 }}$162</label>
+                            <label>{{ buy_in_form.b215 }}$215</label>
+                            <label>{{ buy_in_form.b320}}$320</label>
+                            <label>{{ buy_in_form.b530 }}$530</label>
+                            <label>{{ buy_in_form.b1050 }}$1050</label>
+                            <label>{{ buy_in_form.b2100 }}$2100</label>
+                            <label>{{ buy_in_form.b5200 }}$5200</label>
+                            <label>{{ buy_in_form.b10300 }}$10300</label>
+                            <label>{{ buy_in_form.b25000 }}$25000</label>
                         </div>
                     </div>
                     <div class="table_size">
-                        <button class="table_size_button" onclick="toggleDropdownTableSize()" id="table_size_button">
+                        <button class="table_size_button" onclick="toggleDropdownTableSize(); HandleTableSizeValue()" id="table_size_button">
                             All
                             <img class="chevron" src="{% static 'img/chevron_down.svg' %}">
                         </button>
                         <div id="table_size_dropdown" class="dropdown-content">
-                            <label><input class="table_size_checkbox" type="checkbox" value="5-max" onchange="updateButtonTextTableSize()">5-max</label>
-                            <label><input class="table_size_checkbox" type="checkbox" value="6-max" onchange="updateButtonTextTableSize()">6-max</label>
-                            <label><input class="table_size_checkbox" type="checkbox" value="7-max" onchange="updateButtonTextTableSize()">7-max</label>
-                            <label><input class="table_size_checkbox" type="checkbox" value="8-max" onchange="updateButtonTextTableSize()">8-max</label>
-                            <label><input class="table_size_checkbox" type="checkbox" value="9-max" onchange="updateButtonTextTableSize()">9-max</label>
+                            <label>{{ table_size_form.five_max }}5-max</label>
+                            <label>{{ table_size_form.six_max }}6-max</label>
+                            <label>{{ table_size_form.seven_max }}7-max</label>
+                            <label>{{ table_size_form.eight_max }}8-max</label>
+                            <label>{{ table_size_form.nine_max }}9-max</label>
                         </div>
                     </div>
 
                     <div class="speed">
-                        <button class="speed_button" onclick="toggleDropdownSpeed()" id="speed_button">
+                        <button class="speed_button" onclick="toggleDropdownSpeed(); HandleSpeedValue()" id="speed_button">
                             All
                             <img class="chevron" src="{% static 'img/chevron_down.svg' %}">
                         </button>
                         <div id="speed_dropdown" class="dropdown-content">
-                            <label><input class="speed_checkbox" type="checkbox" value="Slow" onchange="updateButtonTextSpeed()">Slow</label>
-                            <label><input class="speed_checkbox" type="checkbox" value="Regular" onchange="updateButtonTextSpeed()">Regular</label>
-                            <label><input class="speed_checkbox" type="checkbox" value="Turbo" onchange="updateButtonTextSpeed()">Turbo</label>
-                            <label><input class="speed_checkbox" type="checkbox" value="Hyper-Turbo" onchange="updateButtonTextSpeed()">Hyper-Turbo</label>
+                            <label>{{ speed_form.slow }}Slow</label>
+                            <label>{{ speed_form.regular }}Regular</label>
+                            <label>{{ speed_form.turbo }}Turbo</label>
+                            <label>{{ speed_form.hyper_turbo }}Hyper-Turbo</label>
                         </div>
                     </div>
                 </div>
@@ -134,7 +134,7 @@
                     </tr>
                 </thead>
                 <tbody id="content">
-                    <script src="{% static 'all_deals_server.js'%}"></script>
+
                 </tbody>
             </table>
         </div>
