@@ -78,6 +78,7 @@ def get_all_deals(page, start_date, end_date, tournament_type, buy_in, table_siz
                 case 'hyper-turbo':
                     speed_list.append("'HYPER'")
         speed = ','.join(speed_list)
+
     else:
         speed = ','.join(["'SLOW'", "'REG'", "'TURBO'", "'HYPER'"])
 

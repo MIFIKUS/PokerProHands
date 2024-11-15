@@ -480,7 +480,7 @@ select{
 .buy_panel_container{
     width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: center;a
 }
 
 .buy_panel{
@@ -488,13 +488,14 @@ select{
     height: 7.03703704vh;
     background-color: #080B0F;
     display: flex;
+    justify-content: space-between;
     align-items: center;
     position: fixed;
     top: 90vh;
     border-radius: 8px;
 
     padding-left: 2.04081633%;
-    padding-right: 2.04081633% !important;
+    padding-right: 2.04081633%;
 }
 
 #selected_text{
@@ -504,16 +505,10 @@ select{
     font-size: 14px;
     line-height: 140%;
     color: #797F85;
-    padding-right: 0.680272109%;
-    padding-left
+    padding-right: 4.59183673%;
+
 }
 
-#amount_of_selected_deals{
-    width: 2.551020408163%;
-    height: 1.700680272109%;
-
-    padding-right: 33.07823129252%;
-}
 
 #total_text{
     font-family: 'Montserrat';
@@ -523,8 +518,8 @@ select{
     line-height: 150%;
 
     color: #FFFFFF;
+    padding-right: 2%;
 
-    padding-right: 2.040816326531%;
 }
 
 #hands_text{
@@ -536,11 +531,12 @@ select{
 
     color: #797F85;
 
-    padding-right: 1.020408163265%;
+    padding-right: 1%;
+
 }
 
 #amount_of_hands{
-    padding-right: 2.040816326531%;
+    padding-right: 2%;
 }
 
 #cost_text{
@@ -551,19 +547,40 @@ select{
     line-height: 150%;
 
     color: #797F85;
-
-    padding-right: 1.020408163265%;
+    padding-right: 1%;
 }
 
-#cost_amount{
-    padding-right: 21.8537414966%;
+
+#first_panel{
+    display: flex;
+    white-space: nowrap;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+    width: 33.33333333%;
+}
+
+#second_panel{
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 33.33333333%;
+}
+
+#third_panel{
+    display: flex;
+    height: 100%;
+    text-align: center;
+    align-items: center;
 }
 
 #buy{
+    display: flex;
+    align-items: center;
     white-space: nowrap;
     cursor: pointer;
-    width: 17.7721088%;
-    height: 68.4210526%;
+    width: 100%;
+    height: 70%;
     border: transparent;
     background: #00AA8C;
     border-radius: 8px;
@@ -575,3 +592,15 @@ select{
     font-size: 14px;
     line-height: 140%;
 }
+
+#amount_of_selected_deals{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 150%;
+
+    font-feature-settings: 'tnum' on, 'lnum' on;
+    color: #FFFFFF;
+}
+

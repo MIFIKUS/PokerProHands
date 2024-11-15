@@ -15,8 +15,80 @@ var speed_value = [];
 
 const filters_url = '';
 
+const loaded_deals = [];
+
 // Флаг для отслеживания состояния загрузки
 let isLoading = false;
+
+function checkBuyPanelVisibility(){
+    const buy_panel = document.getElementById('buy_panel');
+    const selected_deals = parseFloat(document.getElementById('amount_of_selected_deals').textContent);
+
+    console.log(selected_deals);
+    if (buy_panel.style.display == 'none'){
+        buy_panel.style.display = '';
+    }
+
+    if (selected_deals == 0){
+        console.log(buy_panel);
+        buy_panel.style.display = 'none';
+    }
+}
+
+function countSelectedDeals() {
+    const selectedCount = document.querySelectorAll('.selected').length;
+
+    const amountElement = document.getElementById('amount_of_selected_deals');
+    amountElement.textContent = `${selectedCount}`;
+}
+
+function countSelectedHands(){
+    const selectedRows = document.querySelectorAll('tr.selected');
+    let sum = 0;
+
+    // Проходим по каждой выбранной строке
+    selectedRows.forEach(row => {
+        // Получаем предпоследний td
+        const cells = row.getElementsByTagName('td');
+        if (cells.length >= 2) { // Убедимся, что есть достаточно ячеек
+            const value = parseFloat(cells[cells.length - 2].textContent);
+            if (!isNaN(value)) {
+                sum += value; // Суммируем значения
+            }
+        }
+    });
+
+    // Обновляем текст в элементе с ID 'amount_of_hands'
+    const amountElement = document.getElementById('amount_of_hands');
+    sum = sum.toLocaleString('ru-RU');
+    amountElement.textContent = `${sum}`;
+}
+
+
+function countSelectedCost(){
+    const selectedRows = document.querySelectorAll('tr.selected');
+    let sum = 0;
+
+    // Проходим по каждой выбранной строке
+    selectedRows.forEach(row => {
+        // Получаем предпоследний td
+        const cells = row.getElementsByTagName('td');
+        if (cells.length >= 2) { // Убедимся, что есть достаточно ячеек
+            const value = parseFloat(cells[cells.length - 1].textContent.replace('$', ''));
+            console.log(value);
+            if (!isNaN(value)) {
+                sum += value; // Суммируем значения
+            }
+        }
+    });
+
+    // Обновляем текст в элементе с ID 'amount_of_hands'
+    const amountElement = document.getElementById('cost_amount');
+    sum = sum.toLocaleString('ru-RU');
+    console.log(sum);
+    amountElement.textContent = `$${sum}`;
+}
+
 
 // Функция для загрузки данных с сервера
 async function loadData(page) {
@@ -92,33 +164,53 @@ async function loadData(page) {
                         </div>
                     </td>
                     <td>${hands}</td>
-                    <td>12</td>
+                    <td>$12</td>
                 </tr>
             `;
         });
-
+    isLoading = false;
     } catch (error) {
         console.error('Ошибка загрузки данных:', error);
-    } finally {
-        isLoading = false; // Сбрасываем флаг загрузки после завершения
+        isLoading = true;
     }
 
     const rows = document.querySelectorAll('tr');
 
+    countSelectedDeals();
+    countSelectedHands();
+    countSelectedCost();
+    checkBuyPanelVisibility();
 // Добавляем обработчик события для каждого tr
     rows.forEach(row => {
+        if (loaded_deals.includes(row)){
+            return;
+        }
+        else{
+            loaded_deals.push(row);
+        }
         row.addEventListener('click', function() {
+
             if (this.classList.contains('selected')){
                 this.classList.remove('selected');
 
                 const select_img = this.querySelector('td').querySelector('img');
                 select_img.src = '/static/img/select.svg'
 
+                countSelectedDeals();
+                countSelectedHands();
+                countSelectedCost();
+                checkBuyPanelVisibility();
             } else{
                 this.classList.add('selected');
+                console.log(this.classList);
                 const select_img = this.querySelector('td').querySelector('img');
                 select_img.src = '/static/img/selected.svg'
-            }
+
+                countSelectedDeals();
+                countSelectedHands();
+                countSelectedCost();
+                checkBuyPanelVisibility();
+          }
         });
     });
 
